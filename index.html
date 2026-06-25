@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShreeVidhya Coaching ERP – One Platform. Complete Control. Your Brand.</title>
+    <meta name="description" content="AI-powered coaching management platform with integrated online classes, automated notifications, and white-label branding." />
+    <link rel="icon" type="image/x-icon" href="shreeVidhyaIcon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        'primary-light': '#818CF8',
+                        'primary-dark': '#3730A3',
+                        secondary: '#10B981',
+                    },
+                    fontFamily: {
+                        righteous: ['Righteous', 'cursive'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #EEF2FF 0%, #FFFFFF 50%, #ECFDF5 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(79, 70, 229, 0.12);
+        }
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.15);
+        }
+        .pricing-card.featured {
+            border: 2px solid #4F46E5;
+            position: relative;
+        }
+        .pricing-card.featured::before {
+            content: 'Best Value';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4F46E5;
+            color: white;
+            padding: 4px 20px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4F46E5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #4F46E5, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+        .footer-logo {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+        .dashboard-image {
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center gap-2">
+                        <img src="ShreeVidhyaDark.png" alt="ShreeVidhya Logo" class="logo-img" />
+                        <span class="text-xl font-righteous text-primary ml-1">ShreeVidhya</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="nav-link text-gray-700 hover:text-primary transition text-sm font-medium">Features</a>
+                    <a href="#ai-assistant" class="nav-link text-gray-700 hover:text-primary transition text-sm font-medium">AI Assistant</a>
+                    <a href="#online-classes" class="nav-link text-gray-700 hover:text-primary transition text-sm font-medium">Online Classes</a>
+                    <a href="#pricing" class="nav-link text-gray-700 hover:text-primary transition text-sm font-medium">Pricing</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-primary transition text-sm font-medium">Testimonials</a>
+                    <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary-dark transition text-sm font-medium">
+                        Request Demo
+                    </a>
+                </div>
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-4 py-3 space-y-2">
+                <a href="#features" class="block py-2 text-gray-700 hover:text-primary">Features</a>
+                <a href="#ai-assistant" class="block py-2 text-gray-700 hover:text-primary">AI Assistant</a>
+                <a href="#online-classes" class="block py-2 text-gray-700 hover:text-primary">Online Classes</a>
+                <a href="#pricing" class="block py-2 text-gray-700 hover:text-primary">Pricing</a>
+                <a href="#testimonials" class="block py-2 text-gray-700 hover:text-primary">Testimonials</a>
+                <a href="#contact" class="block bg-primary text-white px-4 py-2 rounded-lg text-center hover:bg-primary-dark">Request Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-gradient py-20 md:py-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+                        <i class="fas fa-sparkles"></i>
+                        AI-Powered Coaching ERP
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-righteous text-primary-dark leading-tight">
+                        One Platform.<br />
+                        Complete Control.<br />
+                        <span class="gradient-text">Your Brand.</span>
+                    </h1>
+                    <p class="mt-4 text-lg text-gray-600 max-w-lg">
+                        Transform your coaching centre with AI-powered automation, integrated online classes, 
+                        and white-label branding – all in one easy-to-use ERP.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition shadow-lg shadow-primary/20">
+                            Request a Demo
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#features" class="border border-gray-300 hover:bg-gray-50 px-8 py-3 rounded-lg font-semibold transition">
+                            Explore Features
+                        </a>
+                    </div>
+                    <div class="mt-6 flex flex-wrap items-center gap-6 text-sm text-gray-500">
+                        <span class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-secondary"></i> No credit card
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-secondary"></i> Free demo
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-secondary"></i> Setup included
+                        </span>
+                    </div>
+                    <div class="mt-6 flex items-center gap-4">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/40?img=1" alt="User" class="w-10 h-10 rounded-full border-2 border-white" />
+                            <img src="https://i.pravatar.cc/40?img=2" alt="User" class="w-10 h-10 rounded-full border-2 border-white" />
+                            <img src="https://i.pravatar.cc/40?img=3" alt="User" class="w-10 h-10 rounded-full border-2 border-white" />
+                            <img src="https://i.pravatar.cc/40?img=4" alt="User" class="w-10 h-10 rounded-full border-2 border-white" />
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700">Trusted by 100+ centres</p>
+                            <p class="text-xs text-gray-500">Across India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- ✅ Real Dashboard Image -->
+                    <img 
+                        src="dashboard.png" 
+                        alt="ShreeVidhya ERP Dashboard" 
+                        class="dashboard-image w-full h-auto shadow-2xl border border-gray-200"
+                    />
+                    <!-- Floating AI badge -->
+                    <div class="absolute -top-4 -right-4 bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-pulse-slow">
+                        <i class="fas fa-robot mr-2"></i> AI-Powered
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES OVERVIEW ==================== -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Features</span>
+                <h2 class="text-3xl md:text-4xl font-righteous text-primary-dark mt-2">Everything You Need to Run Your Coaching Centre</h2>
+                <p class="mt-4 text-gray-600">Manage your coaching centre like a pro with our all-in-one platform.</p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="feature-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                        <i class="fas fa-calendar-alt text-xl"></i>
+                    </div>
+                    <h3 class="mt-4 font-semibold text-gray-800">Smart Timetable</h3>
+                    <p class="mt-1 text-sm text-gray-600">Day-wise teacher-subject assignment. One-click edits reflect everywhere instantly.</p>
+                </div>
+                <div class="feature-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+                        <i class="fas fa-coins text-xl"></i>
+                    </div>
+                    <h3 class="mt-4 font-semibold text-gray-800">Fee Management</h3>
+                    <p class="mt-1 text-sm text-gray-600">Set up installment plans, track pending fees, auto-record every collection.</p>
+                </div>
+                <div class="feature-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-lg bg-amber-50 flex items-center justify-center text-amber-500">
+                        <i class="fas fa-clipboard-check text-xl"></i>
+                    </div>
+                    <h3 class="mt-4 font-semibold text-gray-800">Attendance & Exams</h3>
+                    <p class="mt-1 text-sm text-gray-600">Mark attendance with a single click. Create exams and enter marks.</p>
+                </div>
+                <div class="feature-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-blue-500">
+                        <i class="fas fa-bell text-xl"></i>
+                    </div>
+                    <h3 class="mt-4 font-semibold text-gray-800">Automated Notifications</h3>
+                    <p class="mt-1 text-sm text-gray-600">Fee reminders, exam alerts, class starting soon – all sent automatically.</p>
+                </div>
+                <div class="feature-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-lg bg-purple-50 flex items-center justify-center text-purple-500">
+                        <i class="fas fa-video text-xl"></i>
+                    </div>
+                    <h3 class="mt-4 font-semibold text-gray-800">Integrated Online Classes</h3>
+                    <p class="mt-1 text-sm text-gray-600">Schedule and run live classes with Jitsi – built-in, no extra cost.</p>
+                </div>
+                <div class="feature-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-lg bg-pink-50 flex items-center justify-center text-pink-500">
+                        <i class="fas fa-robot text-xl"></i>
+                    </div>
+                    <h3 class="mt-4 font-semibold text-gray-800">AI Assistant – VidhyaMitra</h3>
+                    <p class="mt-1 text-sm text-gray-600">Ask questions in plain English and get instant, data-driven answers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== AI ASSISTANT ==================== -->
+    <section id="ai-assistant" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider">AI Assistant</span>
+                    <h2 class="text-3xl md:text-4xl font-righteous text-primary-dark mt-2">Meet <span class="text-primary">VidhyaMitra</span></h2>
+                    <p class="mt-4 text-gray-600 text-lg">
+                        Your 24/7 AI co-pilot. Students, teachers, and admins can ask questions in plain English 
+                        and get instant, data-driven answers.
+                    </p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">S</div>
+                            <div>
+                                <p class="text-xs text-gray-400">Student</p>
+                                <p class="text-sm">“What’s my attendance?” → <span class="font-semibold text-primary">85% (24/28)</span></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-sm font-bold">T</div>
+                            <div>
+                                <p class="text-xs text-gray-400">Teacher</p>
+                                <p class="text-sm">“Mark Rahul present” → <span class="font-semibold text-secondary">✅ Attendance marked</span></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-amber-500 text-sm font-bold">A</div>
+                            <div>
+                                <p class="text-xs text-gray-400">Admin</p>
+                                <p class="text-sm">“Show pending fees” → <span class="font-semibold text-amber-500">₹5,000 due from 8 students</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="mt-6 inline-block text-primary font-semibold hover:underline">
+                        Try it yourself in your free demo →
+                    </a>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-6">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">AI</div>
+                        <div>
+                            <p class="font-semibold text-gray-800">VidhyaMitra</p>
+                            <p class="text-sm text-gray-500">Ask me anything about your institute.</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 space-y-3">
+                        <div class="bg-gray-100 rounded-lg p-3 text-sm">
+                            <p class="text-gray-500"><i class="fas fa-user mr-2"></i> You</p>
+                            <p class="mt-1">“What’s my attendance?”</p>
+                        </div>
+                        <div class="bg-primary/5 rounded-lg p-3 text-sm border border-primary/20">
+                            <p class="text-primary"><i class="fas fa-robot mr-2"></i> VidhyaMitra</p>
+                            <p class="mt-1">“85% (24/28 sessions present). Keep it up! 🎉”</p>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-3 text-sm">
+                            <p class="text-gray-500"><i class="fas fa-user mr-2"></i> You</p>
+                            <p class="mt-1">“My pending fees?”</p>
+                        </div>
+                        <div class="bg-primary/5 rounded-lg p-3 text-sm border border-primary/20">
+                            <p class="text-primary"><i class="fas fa-robot mr-2"></i> VidhyaMitra</p>
+                            <p class="mt-1">“You have ₹5,000 pending. Due date: 30th June.”</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ONLINE CLASSES ==================== -->
+    <section id="online-classes" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Online Classes</span>
+                <h2 class="text-3xl md:text-4xl font-righteous text-primary-dark mt-2">Live Classes – Built-in</h2>
+                <p class="mt-4 text-gray-600">No extra cost. No third-party subscriptions. Everything is integrated.</p>
+            </div>
+            <div class="mt-12 grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                        <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Schedule Classes</h4>
+                            <p class="text-sm text-gray-600">Set date, time, duration, and batch. Students join with one click.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                        <div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary flex-shrink-0">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Attendance Auto-Recorded</h4>
+                            <p class="text-sm text-gray-600">Track who attended, for how long. No manual marking.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                        <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-500 flex-shrink-0">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Your Branding</h4>
+                            <p class="text-sm text-gray-600">Customized interface with your logo and colours.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="bg-gray-800 px-4 py-3 flex items-center gap-2">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <span class="text-xs text-gray-400 ml-2">Live Class – Math Session</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="bg-gray-700 rounded-lg aspect-video flex items-center justify-center text-gray-400">
+                                <i class="fas fa-user text-3xl"></i>
+                            </div>
+                            <div class="bg-gray-700 rounded-lg aspect-video flex items-center justify-center text-gray-400">
+                                <i class="fas fa-user text-3xl"></i>
+                            </div>
+                            <div class="bg-gray-700 rounded-lg aspect-video flex items-center justify-center text-gray-400">
+                                <i class="fas fa-user text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-gray-700 rounded-lg p-3 flex items-center justify-between">
+                            <span class="text-sm text-gray-300"><i class="fas fa-comment mr-2"></i> Live Chat</span>
+                            <span class="text-xs text-green-400"><i class="fas fa-circle mr-1"></i> 6 participants</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRICING ==================== -->
+<section id="pricing" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+            <span class="text-primary font-semibold text-sm uppercase tracking-wider">Pricing</span>
+            <h2 class="text-3xl md:text-4xl font-righteous text-primary-dark mt-2">One Plan. Everything Included.</h2>
+            <p class="mt-4 text-gray-600">No user limits. No feature limits. Just one affordable plan.</p>
+        </div>
+        <div class="mt-12 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Professional (Featured) -->
+            <div class="pricing-card featured bg-white border border-gray-200 rounded-2xl p-8 shadow-lg">
+                <h3 class="text-lg font-semibold text-primary">Professional</h3>
+                <div class="mt-4">
+                    <span class="text-4xl font-bold text-primary-dark">₹24,999</span>
+                    <span class="text-gray-500">/year</span>
+                </div>
+                <ul class="mt-6 space-y-3 text-sm text-gray-600">
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Unlimited students</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Unlimited batches</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> All core features</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> AI Assistant – VidhyaMitra</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Integrated Online Classes</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> <strong>Free White-Label Branding</strong></li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Priority support</li>
+                </ul>
+                <a href="#contact" class="mt-8 block text-center bg-primary text-white py-2.5 rounded-lg hover:bg-primary-dark transition font-medium shadow-lg shadow-primary/20">
+                    Request Demo
+                </a>
+            </div>
+            <!-- Enterprise -->
+            <div class="pricing-card bg-white border border-gray-200 rounded-2xl p-8">
+                <h3 class="text-lg font-semibold text-gray-700">Enterprise</h3>
+                <div class="mt-4">
+                    <span class="text-4xl font-bold text-primary-dark">Custom</span>
+                </div>
+                <ul class="mt-6 space-y-3 text-sm text-gray-600">
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Everything in Professional</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Self-hosted Jitsi</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Custom integrations</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Dedicated support</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Data migration</li>
+                </ul>
+                <a href="#contact" class="mt-8 block text-center border border-gray-300 text-gray-700 py-2.5 rounded-lg hover:bg-gray-50 transition font-medium">
+                    Contact Sales
+                </a>
+            </div>
+        </div>
+        <div class="mt-8 text-center">
+            <p class="text-sm text-gray-500">
+                <i class="fas fa-gem text-primary mr-1"></i> All plans include free white-label branding on annual prepaid.
+            </p>
+        </div>
+    </div>
+</section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl font-righteous text-primary-dark mt-2">What Coaching Centres Say</h2>
+            </div>
+            <div class="mt-12 grid md:grid-cols-3 gap-6">
+                <div class="testimonial-card bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center gap-1 text-amber-400 text-sm">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="mt-3 text-gray-600 text-sm italic">“ShreeVidhya ERP saved us 20+ hours a week on admin work. The AI assistant is a game-changer for our teachers.”</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/40?img=5" alt="User" class="w-10 h-10 rounded-full" />
+                        <div>
+                            <p class="font-semibold text-sm">Priya Sharma</p>
+                            <p class="text-xs text-gray-500">Director, Excel Coaching Centre</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center gap-1 text-amber-400 text-sm">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="mt-3 text-gray-600 text-sm italic">“The integrated online classes feature is incredible. Our students love the seamless experience and attendance tracking.”</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/40?img=6" alt="User" class="w-10 h-10 rounded-full" />
+                        <div>
+                            <p class="font-semibold text-sm">Rahul Mehta</p>
+                            <p class="text-xs text-gray-500">Founder, Ace Academy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center gap-1 text-amber-400 text-sm">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="mt-3 text-gray-600 text-sm italic">“White-label branding made us look professional. Our parents trust the platform and fees are always on time now.”</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/40?img=7" alt="User" class="w-10 h-10 rounded-full" />
+                        <div>
+                            <p class="font-semibold text-sm">Anjali Reddy</p>
+                            <p class="text-xs text-gray-500">CEO, Bright Future Institute</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT / DEMO REQUEST ==================== -->
+    <section id="contact" class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-primary-light text-sm uppercase tracking-wider">Get Started</span>
+                    <h2 class="text-3xl md:text-4xl font-righteous mt-2">Ready to Transform Your Coaching Business?</h2>
+                    <p class="mt-4 text-primary-light text-lg">
+                        Join 100+ coaching centres that have already switched to ShreeVidhya ERP. 
+                        Get a free demo and see how our AI-powered platform saves you time and money.
+                    </p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-phone text-primary-light w-5"></i>
+                            <span>+91 70697 85900</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary-light w-5"></i>
+                            <span>info@shreevidhya.online</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-globe text-primary-light w-5"></i>
+                            <span>www.shreevidhya.online</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex gap-4">
+                        <a href="#" class="text-white hover:text-primary-light transition"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-primary-light transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-primary-light transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-primary-light transition"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 text-gray-800 shadow-2xl">
+                    <h3 class="text-2xl font-righteous text-primary-dark">Request a Free Demo</h3>
+                    <p class="text-sm text-gray-500 mt-1">We'll get back to you within 24 hours.</p>
+                    <form id="demoForm" class="mt-6 space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Full Name *</label>
+                            <input type="text" id="demoName" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="Your name" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Email *</label>
+                            <input type="email" id="demoEmail" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="you@example.com" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Phone</label>
+                            <input type="tel" id="demoPhone" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="+91 98765 43210" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Institute Name *</label>
+                            <input type="text" id="demoInstitute" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="Your coaching centre name" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Message</label>
+                            <textarea id="demoMessage" rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="Any specific requirements?"></textarea>
+                        </div>
+                        <button type="submit" id="demoSubmitBtn" class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-semibold transition shadow-lg shadow-primary/30">
+                            Request Demo <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                        <p class="text-xs text-gray-400 text-center mt-2">
+                            <i class="fas fa-lock mr-1"></i> Your information is secure. We never share your data.
+                        </p>
+                    </form>
+                    <div id="demoSuccess" class="hidden text-center py-4">
+                        <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto">
+                            <i class="fas fa-check-circle text-secondary text-3xl"></i>
+                        </div>
+                        <h4 class="mt-3 font-semibold text-gray-800">Thank You!</h4>
+                        <p class="text-sm text-gray-500">We'll get back to you within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <img src="ShreeVidhyalight.png" alt="ShreeVidhya Logo" class="footer-logo" />
+                        <span class="text-lg font-righteous">ShreeVidhya</span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-400">One Platform. Complete Control. Your Brand.</p>
+                    <div class="mt-4 flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold">Product</h4>
+                    <ul class="mt-2 space-y-2 text-sm text-gray-400">
+                        <li><a href="#features" class="hover:text-white transition">Features</a></li>
+                        <li><a href="#ai-assistant" class="hover:text-white transition">AI Assistant</a></li>
+                        <li><a href="#online-classes" class="hover:text-white transition">Online Classes</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold">Company</h4>
+                    <ul class="mt-2 space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">About</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Request Demo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold">Contact</h4>
+                    <ul class="mt-2 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i> +91 70697 85900</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@shreevidhya.online</li>
+                        <li><i class="fas fa-globe mr-2"></i> www.shreevidhya.online</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+                © 2026 ShreeVidhya Academy. All rights reserved. Built for coaching centres, by people who understand them.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // ===== Mobile Menu Toggle =====
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // ================================================================
+        // 🔐 UPDATE THIS WITH YOUR ACTUAL SUPABASE ANON KEY
+        // ================================================================
+        const SUPABASE_URL = 'https://yxmwhvhnrwqxyluhnqta.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_hMlmOn4xPdgxlvAFK_LfsQ_nrBy161d'; // <-- Replace this!
+
+        // ===== Demo Form – inserts into `leads` table =====
+        const demoForm = document.getElementById('demoForm');
+        const demoSubmitBtn = document.getElementById('demoSubmitBtn');
+        const demoSuccess = document.getElementById('demoSuccess');
+
+        demoForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('demoName').value.trim();
+            const email = document.getElementById('demoEmail').value.trim();
+            const phone = document.getElementById('demoPhone').value.trim();
+            const institute = document.getElementById('demoInstitute').value.trim();
+            const message = document.getElementById('demoMessage').value.trim();
+
+            if (!name || !email || !institute) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            demoSubmitBtn.disabled = true;
+            demoSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
+
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify({ name, email, phone, institute, message, source: 'website' })
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(errorText || 'Submission failed');
+                }
+
+                // Success
+                demoForm.classList.add('hidden');
+                demoSuccess.classList.remove('hidden');
+            } catch (err) {
+                console.error('Error:', err);
+                alert('Something went wrong. Please try again or contact us directly at info@shreevidhya.online');
+            } finally {
+                demoSubmitBtn.disabled = false;
+                demoSubmitBtn.innerHTML = 'Request Demo <i class="fas fa-arrow-right ml-2"></i>';
+            }
+        });
+
+        // ===== Smooth scroll for anchor links =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
