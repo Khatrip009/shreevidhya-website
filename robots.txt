@@ -1,0 +1,4 @@
+# robots.txt for ShreeVidhya ERP Website
+User-agent: *
+Allow: /
+Sitemap: https://shreevidhyaerp.online/sitemap.xml
